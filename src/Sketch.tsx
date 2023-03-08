@@ -1,9 +1,10 @@
+import { Sky } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import GUI from "lil-gui";
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
-const Element = () => {
+export const Sketch = () => {
   const { scene, camera, gl } = useThree();
   const [radius, setRadius] = useState(1);
 
@@ -27,7 +28,14 @@ const Element = () => {
     wireframe: true,
   });
 
-  return <mesh geometry={geo} material={mat} />;
+  return (
+    <>
+      {/* <mesh> */}
+      {/* <sphereGeometry /> */}
+      {/* <meshStandardMaterial wireframe={true} /> */}
+      {/* </mesh> */}
+      <Sky />
+      <mesh geometry={geo} material={mat} />
+    </>
+  );
 };
-
-export default Element;

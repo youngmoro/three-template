@@ -1,6 +1,6 @@
 import { OrbitControls, Sky } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import Element from "./Element";
+import { Sketch } from "./Sketch";
 
 function App() {
   return (
@@ -13,12 +13,7 @@ function App() {
       </div>
       <div className="canvas">
         <Canvas className="canvas">
-          <mesh>
-            {/* <sphereGeometry /> */}
-            {/* <meshStandardMaterial wireframe={true} /> */}
-            <Sky />
-          </mesh>
-          <Element />
+          <Sketch />
           <OrbitControls />
         </Canvas>
       </div>
