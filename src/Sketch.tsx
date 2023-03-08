@@ -25,11 +25,15 @@ export const Sketch = () => {
     elementRef.current = new Element(scene, radius);
   }, []);
 
-  const geo = new THREE.SphereGeometry(radius);
-  const mat = new THREE.MeshBasicMaterial({
-    color: 0xff00ff,
-    wireframe: true,
-  });
+  useEffect(() => {
+    elementRef.current?.update(radius);
+  }, [radius]);
+
+  // const geo = new THREE.SphereGeometry(radius);
+  // const mat = new THREE.MeshBasicMaterial({
+  //   color: 0xff00ff,
+  //   wireframe: true,
+  // });
 
   return (
     <>

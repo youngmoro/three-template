@@ -4,10 +4,13 @@ import vert from "./shader/vert.glsl?raw";
 
 export default class Element {
   scene: THREE.Scene;
+  mesh: THREE.Mesh;
+  geo: THREE.SphereGeometry;
+  mat: THREE.ShaderMaterial;
 
   constructor(scene: THREE.Scene, radius: number) {
-    const geometry = new THREE.SphereGeometry(radius);
-    const material = new THREE.ShaderMaterial({
+    this.geo = new THREE.SphereGeometry(radius);
+    this.mat = new THREE.ShaderMaterial({
       fragmentShader: frag,
       vertexShader: vert,
       uniforms: {
@@ -15,7 +18,15 @@ export default class Element {
       },
       wireframe: true,
     });
+    this.mesh = new THREE.Mesh(this.geo, this.mat);
     this.scene = scene;
-    this.scene.add(new THREE.Mesh(geometry, material));
+    this.scene.add(this.mesh);
+  }
+
+  update(newRadius: number) {
+    this.scene.remove(this.mesh);
+    this.geo = new THREE.SphereGeometry(newRadius);
+    this.mesh = new THREE.Mesh(this.geo, this.mat);
+    this.scene.add(this.mesh);
   }
 }
