@@ -1,6 +1,5 @@
 import { OrbitControls, Sky } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import "./style/App.css";
 import Element from "./Element";
 
 function App() {
@@ -15,8 +14,8 @@ function App() {
       <div className="canvas">
         <Canvas className="canvas">
           <mesh>
-            <sphereGeometry />
-            <meshStandardMaterial wireframe={true} />
+            {/* <sphereGeometry /> */}
+            {/* <meshStandardMaterial wireframe={true} /> */}
             <Sky />
           </mesh>
           <Element />

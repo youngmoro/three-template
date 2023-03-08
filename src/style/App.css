@@ -19,5 +19,11 @@
 
 .logo {
   height: 3em;
-  padding: 0.5em;
+  margin: 1em;
+}
+
+h2 {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 1em;
 }
