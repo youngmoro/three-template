@@ -3,6 +3,7 @@ import { useThree } from "@react-three/fiber";
 import GUI from "lil-gui";
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import Element from "./Element";
 
 export const Sketch = () => {
   const { scene, camera, gl } = useThree();
@@ -13,6 +14,7 @@ export const Sketch = () => {
   };
 
   const guiRef = useRef<GUI>();
+  const elementRef = useRef<Element>();
 
   useEffect(() => {
     const gui = new GUI();
@@ -20,6 +22,7 @@ export const Sketch = () => {
       .add(params, "size", 1, 10)
       .onChange((value: number) => setRadius(value));
     guiRef.current = gui;
+    elementRef.current = new Element(scene, radius);
   }, []);
 
   const geo = new THREE.SphereGeometry(radius);
@@ -30,12 +33,12 @@ export const Sketch = () => {
 
   return (
     <>
+      <Sky />
       {/* <mesh> */}
       {/* <sphereGeometry /> */}
       {/* <meshStandardMaterial wireframe={true} /> */}
       {/* </mesh> */}
-      <Sky />
-      <mesh geometry={geo} material={mat} />
+      {/* <mesh geometry={geo} material={mat} /> */}
     </>
   );
 };
