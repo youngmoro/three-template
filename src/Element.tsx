@@ -5,7 +5,7 @@ import * as THREE from "three";
 
 const Element = () => {
   const { scene, camera, gl } = useThree();
-  const [radius, setRadius] = useState(50);
+  const [radius, setRadius] = useState(1);
 
   const params = {
     size: radius,
@@ -16,16 +16,18 @@ const Element = () => {
   useEffect(() => {
     const gui = new GUI();
     gui
-      .add(params, "size", 0, 100)
+      .add(params, "size", 1, 10)
       .onChange((value: number) => setRadius(value));
     guiRef.current = gui;
   }, []);
 
-  const box = {
-    const geo = new THREE.BoxBufferGeometry(radius, radius, radius);
-  }
+  const geo = new THREE.SphereGeometry(radius);
+  const mat = new THREE.MeshBasicMaterial({
+    color: 0xff00ff,
+    wireframe: true,
+  });
 
-  return <></>;
+  return <mesh geometry={geo} material={mat} />;
 };
 
 export default Element;
