@@ -1,3 +1,4 @@
+import { OrbitControls, Sky } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import "./App.css";
 
@@ -11,7 +12,14 @@ function App() {
         <h2>Vite + React + Three Canvas</h2>
       </div>
       <div className="canvas">
-        <Canvas className="canvas"></Canvas>
+        <Canvas className="canvas">
+          <mesh>
+            <sphereGeometry />
+            <meshStandardMaterial wireframe={true} />
+            <Sky />
+          </mesh>
+          <OrbitControls />
+        </Canvas>
       </div>
     </div>
   );
