@@ -11,7 +11,7 @@ function App() {
         <h2>Vite + React + Three Canvas</h2>
       </div>
       <div className="canvas">
-        <Canvas></Canvas>
+        <Canvas className="canvas"></Canvas>
       </div>
     </div>
   );
