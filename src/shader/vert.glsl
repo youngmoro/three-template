@@ -1,6 +1,7 @@
 varying vec3 vNormal;
 varying vec4 vModelPos;
 varying vec4 vProjectPos;
+varying vec2 vUv;
 
 void main() {
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
@@ -10,4 +11,5 @@ void main() {
     vNormal = normal;
     vModelPos = modelPosition;
     vProjectPos = projectionPosition;
+    vUv = uv;
 }

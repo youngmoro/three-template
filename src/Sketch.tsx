@@ -17,6 +17,7 @@ export const Sketch = () => {
   const elementRef = useRef<Element>();
 
   useEffect(() => {
+    elementRef.current?.update(radius);
     const gui = new GUI();
     gui
       .add(params, "size", 1, 10)
