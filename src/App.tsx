@@ -9,7 +9,7 @@ function App() {
         <img src="/vite.svg" className="logo" alt="Vite logo" />
         <img src="/react.svg" className="logo react" alt="React logo" />
         <img src="/three.png" className="logo" alt="Three logo" />
-        <h2>Vite + React + Three Canvas</h2>
+        <h2>Vite + React + Three</h2>
       </div>
       <div className="canvas">
         <Canvas className="canvas">
