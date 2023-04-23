@@ -7,8 +7,10 @@ export default class Element {
   mesh: THREE.Mesh;
   geo: THREE.SphereGeometry;
   mat: THREE.ShaderMaterial;
+  radius: number;
 
   constructor(scene: THREE.Scene, radius: number) {
+    this.radius = radius;
     this.geo = new THREE.SphereGeometry(radius);
     this.mat = new THREE.ShaderMaterial({
       fragmentShader: frag,
@@ -24,9 +26,9 @@ export default class Element {
   }
 
   update(newRadius: number) {
-    this.scene.remove(this.mesh);
-    this.geo = new THREE.SphereGeometry(newRadius);
-    this.mesh = new THREE.Mesh(this.geo, this.mat);
-    this.scene.add(this.mesh);
+    const scale = newRadius / this.radius;
+    this.mesh.scale.x = scale;
+    this.mesh.scale.y = scale;
+    this.mesh.scale.z = scale;
   }
 }
